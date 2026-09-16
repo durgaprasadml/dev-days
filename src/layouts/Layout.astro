@@ -93,6 +93,20 @@ const { title = "Tailspin Toys" } = Astro.props;
         border-color: #fff !important;
     }
 
+    html.high-contrast [class*='bg-blue-'],
+    html.high-contrast [class*='bg-purple-'],
+    html.high-contrast [class*='bg-yellow-'] {
+        background: #000 !important;
+        border-color: #fff !important;
+        color: #fff !important;
+    }
+
+    html.high-contrast [class*='text-blue-'],
+    html.high-contrast [class*='text-purple-'],
+    html.high-contrast [class*='text-yellow-'] {
+        color: #fff !important;
+    }
+
     html.high-contrast a:hover,
     html.high-contrast button:hover {
         background: #222 !important;

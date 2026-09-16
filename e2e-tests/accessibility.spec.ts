@@ -239,6 +239,14 @@ test.describe('Accessibility Tests', () => {
       await expect(page.locator('html')).toHaveClass(/high-contrast/);
     });
 
+    await test.step('Verify the preference survives navigation', async () => {
+      await page.getByTestId('menu-toggle').click();
+      await page.getByTestId('nav-about').click();
+      await expect(page).toHaveURL('/about');
+      await expect(page.getByTestId('high-contrast-toggle')).toHaveAttribute('aria-pressed', 'true');
+      await expect(page.locator('html')).toHaveClass(/high-contrast/);
+    });
+
     await test.step('Disable high-contrast mode', async () => {
       await page.getByTestId('high-contrast-toggle').click();
       await expect(page.getByTestId('high-contrast-toggle')).toHaveAttribute('aria-pressed', 'false');
